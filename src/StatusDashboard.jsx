@@ -13,16 +13,10 @@ const StatusDashboard = () => {
     // Trim the status text
     const trimmedStatus = statusText.trim();
     
-    // Validate input
-    if (!trimmedStatus) {
-      alert('Please enter a status update.');
-      return;
-    }
-    
-    // Create new status update
+    // Create new status update - allow empty status
     const newStatus = {
       id: Date.now(),
-      text: trimmedStatus.slice(0, 100), // Ensure max 100 characters
+      text: trimmedStatus ? trimmedStatus.slice(0, 100) : '', // Ensure max 100 characters or empty
       category,
       timestamp: new Date(),
     };
@@ -119,7 +113,9 @@ const StatusDashboard = () => {
           <div className={styles.statusList}>
             {statusUpdates.map((status) => (
               <div key={status.id} className={styles.statusItem}>
-                <div className={styles.statusText}>{status.text}</div>
+                <div className={styles.statusText}>
+                  {status.text || <span className={styles.emptyStatusText}>No updates yet</span>}
+                </div>
                 <div className={styles.statusMeta}>
                   <span className={`${styles.badge} ${getBadgeClass(status.category)}`}>
                     {status.category}

@@ -124,6 +124,11 @@
   padding: 2rem 0;
 }
 
+.emptyStatusText {
+  font-style: italic;
+  color: #718096;
+}
+
 .statusList {
   display: flex;
   flex-direction: column;
