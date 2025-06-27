@@ -1,4 +1,5 @@
 # Custom Status Dashboard
+### Developed by Christian Cattani
 
 A simple React application that allows users to enter short status updates, categorize them, and view their 5 most recent updates. Styled with CSS Modules.
 
